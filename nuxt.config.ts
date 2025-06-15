@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: true,
+
   routeRules: {
     // revalidate after 60 seconds
     "/isr_ttl": { isr: 60 },
@@ -10,4 +11,9 @@ export default defineNuxtConfig({
     "/ssg": { prerender: true },
     "/spa": { ssr: false },
   },
+
+  modules: ["@nuxthub/core"],
+  hub: {
+    workers: true,
+  }
 });
